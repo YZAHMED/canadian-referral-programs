@@ -3,7 +3,7 @@
 Every major Canadian mobile carrier's refer-a-friend programme, read from the
 carrier's own website and published with the date it was checked.
 
-**Last verified: 2026-09-01 · 8 carriers · 4 live, 4 discontinued**
+**Last verified: 2026-09-01 · Fizz re-verified 2026-09-08 · 8 carriers · 4 live, 4 discontinued**
 
 Maintained alongside the human-readable version at
 **<https://mobilereferrals.ca/carrier-referral-programs/>**

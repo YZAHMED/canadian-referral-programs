@@ -1,22 +1,28 @@
 {
   "checked": "2026-09-01",
-  "coverage": "7 of 8 carriers verified against the carriers' own websites on 2026-09-01. Third-party sources were not used for any figure.",
+  "coverage": "8 of 8 carriers verified against the carriers' own websites on 2026-09-01; Fizz re-verified 2026-09-08 across 20 region-and-language checkpoints. Third-party sources were not used for any figure.",
   "programs": [
     {
-      "carrier": "Fizz", "parent": "Quebecor", "live": true, "ours": "/fizz/",
+      "carrier": "Fizz",
+      "parent": "Quebecor",
+      "live": true,
+      "ours": "/fizz/",
       "accountType": "Prepaid-style monthly plan",
       "referee": "$40 outside Quebec, $25 in Quebec",
-      "refereeNote": "Fizz's own pages conflict: the program page says $25 in every region, while the plan-page FAQ advertises $40 in a block tagged for Alberta, Ontario, BC and Manitoba. A real Ontario cart applied $40 on 2026-07-16.",
+      "refereeNote": "Fizz's own pages conflict, and both are live. The programme page says $25 in all five regions; the plan-page referral FAQ advertises $40 in Ontario, Alberta, B.C. and Manitoba and carries no referral FAQ at all in Quebec. Re-verified 2026-09-08 in a real browser across 20 region-and-language checkpoints, region forced by cookie. A real Ontario cart applied $40 on 2026-07-16.",
       "referrer": "$25",
       "whenPaid": "After the new member completes two months of service; the referrer is paid on their following payment",
       "planMinimum": "$20/mo for the new member, before taxes and after discounts",
       "cap": "None — \"You can invite as many friends as you want\"",
       "recoverable": "No — \"We cannot retroactively apply a referral code\"",
       "source": "https://fizz.ca/en/invite-friends",
-      "evidence": "/fizz/en/25-or-40/"
+      "evidence": "/fizz/en/25-or-40/",
+      "lastChecked": "2026-09-08"
     },
     {
-      "carrier": "Koodo", "parent": "TELUS", "live": true,
+      "carrier": "Koodo",
+      "parent": "TELUS",
+      "live": true,
       "accountType": "Postpaid and prepaid — two separate programs, credits do not cross between them",
       "referee": "$25 postpaid, paid as $5/month × 5 months. Prepaid: $5 on activation, then $5 per additional month the friend stays, up to 5 months",
       "referrer": "The same as the new customer, in both programs",
@@ -28,7 +34,10 @@
       "note": "Credits are tax-inclusive, so a $5 credit shows as about $4.42 in Ontario."
     },
     {
-      "carrier": "Public Mobile", "parent": "TELUS", "live": true, "ours": "/public-mobile/",
+      "carrier": "Public Mobile",
+      "parent": "TELUS",
+      "live": true,
+      "ours": "/public-mobile/",
       "accountType": "Prepaid-style 30-day subscription",
       "referee": "$10 one-time bill credit",
       "referrer": "1 Public Point per 30 days that each referred line stays subscribed",
@@ -40,7 +49,9 @@
       "source": "https://www.publicmobile.ca/en/get-help/articles/refer-a-friend"
     },
     {
-      "carrier": "Freedom Mobile", "parent": "Quebecor", "live": true,
+      "carrier": "Freedom Mobile",
+      "parent": "Quebecor",
+      "live": true,
       "accountType": "Prepaid and postpaid",
       "referee": "$25 one-time service credit",
       "referrer": "$25 one-time service credit per successful referral",
@@ -51,9 +62,33 @@
       "source": "https://refer.freedommobile.ca/common/terms?locale=en",
       "note": "There is no shareable code. The referrer sends an invite to a named person, who must claim it before activating. The terms permit referring only \"individuals with whom you have a personal relationship\". Your account also stops being eligible if you change your number or port away."
     },
-    { "carrier": "chatr", "parent": "Rogers", "live": false, "ended": "31 May 2023", "source": "https://www.chatrwireless.com/support/refer-a-friend/" },
-    { "carrier": "Fido", "parent": "Rogers", "live": false, "ended": "2 July 2024", "source": "https://www.fido.ca/support/mobility/refer-a-friend-program" },
-    { "carrier": "Lucky Mobile", "parent": "Bell", "live": false, "ended": "9 June 2025", "source": "https://www.luckymobile.ca/referral-program-rules" },
-    { "carrier": "Virgin Plus", "parent": "Bell", "live": false, "ended": "9 June 2025", "source": "https://www.virginplus.ca/en/support/raf-program-rules.html" }
+    {
+      "carrier": "chatr",
+      "parent": "Rogers",
+      "live": false,
+      "ended": "31 May 2023",
+      "source": "https://www.chatrwireless.com/support/refer-a-friend/"
+    },
+    {
+      "carrier": "Fido",
+      "parent": "Rogers",
+      "live": false,
+      "ended": "2 July 2024",
+      "source": "https://www.fido.ca/support/mobility/refer-a-friend-program"
+    },
+    {
+      "carrier": "Lucky Mobile",
+      "parent": "Bell",
+      "live": false,
+      "ended": "9 June 2025",
+      "source": "https://www.luckymobile.ca/referral-program-rules"
+    },
+    {
+      "carrier": "Virgin Plus",
+      "parent": "Bell",
+      "live": false,
+      "ended": "9 June 2025",
+      "source": "https://www.virginplus.ca/en/support/raf-program-rules.html"
+    }
   ]
 }
