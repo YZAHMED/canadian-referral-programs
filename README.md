@@ -31,7 +31,7 @@ live — checked on their own pages on 2026-10-21 — and are not in it yet.
 
 | Carrier | Parent | Status | New customer | Referrer |
 |---|---|---|---|---|
-| Fizz | Quebecor | live | $40 outside Quebec, $25 in Quebec | $25 (programme page); $40 outside Quebec (plan-page FAQ) |
+| Fizz | Quebecor | live | $25 in every province | $25 (programme page, site menu); $40 outside Quebec (plan-page FAQ) |
 | Koodo | TELUS | live | $25 as $5/mo × 5 months | same |
 | Public Mobile | TELUS | live | $10 | 1 point per 30 days, uncapped |
 | Freedom Mobile | Quebecor | live | $25 | $25, capped at $250/yr |
@@ -54,9 +54,11 @@ can be recovered — is in the JSON and CSV.
    Never from a coupon site or a referral aggregator.
 2. Every record carries the `source` URL it was read from.
 3. Where a carrier's own pages contradict each other, that is recorded rather
-   than resolved. Fizz is the live example: its programme page says $25 in every
-   region while its plan pages say $40 outside Quebec — for the new member and, as
-   of October 2026, for the referrer too.
+   than resolved, unless a real checkout settles it. Fizz is the live example: its
+   programme page says $25 in every region while its plan pages say $40 outside
+   Quebec, for both sides. An Ontario checkout applied $25 on 2026-10-21, so the
+   new-member figure is $25 and the $40 is kept in the note; the referrer figure,
+   which no checkout shows, still records both.
 4. Anything that could not be confirmed is left blank. **A blank cell is
    publishable; a plausible guess is not.**
 
@@ -76,6 +78,10 @@ original records were rejected and re-verified rather than shipped.
 
 ## Changes
 
+- **2026-10-21 (checkout)** — Fizz's new-member figure is now $25 in every
+  province: a real Ontario checkout applied $25, matching the programme page and
+  the site menu. The plan-page FAQ's $40 outside Quebec, which a July 2026 cart
+  applied, is kept in the note. The referrer figure still records both amounts.
 - **2026-10-21** — All eight carriers re-checked. Fizz's plan-page FAQ now
   promises the referrer $40 outside Quebec as well (its programme page still
   says $25); Public Mobile now publishes a point's value ($1); Freedom gives the

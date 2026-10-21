@@ -220,10 +220,11 @@ HTML = f"""<!doctype html>
   <li>Amounts are read from <strong>the carrier's own</strong> website or support documentation.
       Never from a coupon site or a referral aggregator.</li>
   <li>Every record carries the <code>source</code> URL it was read from.</li>
-  <li>Where a carrier's own pages contradict each other, that is recorded rather than resolved.
-      Fizz is the live example: its programme page says $25 in every region while its plan pages
-      advertise $40 outside Quebec &mdash; for the new member and, as of October 2026, for the
-      referrer too.</li>
+  <li>Where a carrier's own pages contradict each other, that is recorded rather than resolved,
+      unless a real checkout settles it. Fizz is the live example: its programme page says $25 in
+      every region while its plan pages advertise $40 outside Quebec, for both sides. An Ontario
+      checkout applied $25 on 2026-10-21, so the new-member figure is $25 and the $40 is kept in
+      the note; the referrer figure, which no checkout shows, still records both.</li>
   <li>Anything that could not be confirmed is left blank.
       <strong>A blank cell is publishable; a plausible guess is not.</strong></li>
 </ol>
@@ -246,6 +247,10 @@ HTML = f"""<!doctype html>
 
 <h2>Changes</h2>
 <ul>
+  <li><strong>2026-10-21 (checkout)</strong> &mdash; Fizz's new-member figure is now $25 in every
+      province: a real Ontario checkout applied $25, matching the programme page and the site menu.
+      The plan-page FAQ's $40 outside Quebec, which a July 2026 cart applied, is kept in the note.
+      The referrer figure still records both amounts.</li>
   <li><strong>2026-10-21</strong> &mdash; All eight carriers re-checked. Fizz's plan-page FAQ now promises
       the referrer $40 outside Quebec as well (its programme page still says $25); Public Mobile now
       publishes a point's value ($1); Freedom gives the referrer a link rather than an invite to a

@@ -152,7 +152,7 @@
     <tr><th>Carrier</th><th>Status</th><th>New customer</th><th>Referrer</th><th>Source</th></tr>
   </thead>
   <tbody>
-<tr><th scope="row">Fizz<div class="sub">Quebecor</div></th><td><span class="tag live">live</span></td><td>$40 outside Quebec, $25 in Quebec<div class="sub">Fizz&#x27;s own pages conflict, and both are live. The programme page says $25 in all five regions; the plan-page referral FAQ advertises $40 in Ontario, Alberta, B.C. and Manitoba and carries no referral FAQ at all in Quebec. Re-verified 2026-10-21 in a real browser across 20 region-and-language checkpoints, region forced by cookie. A real Ontario cart applied $40 on 2026-07-16.</div><div class="sub">re-checked 2026-10-21</div></td><td>$25 on the programme page; $40 on the plan-page FAQ outside Quebec<div class="sub">Fizz&#x27;s pages conflict on this side too: the programme page says &quot;you’ll each get a $25 referral bonus&quot; in every region, while the plan-page FAQ for Alberta, Ontario, BC and Manitoba says &quot;you both receive a $40 referral bonus&quot;. In July 2026 that FAQ gave no amount for the referrer.</div></td><td><a href="https://fizz.ca/en/invite-friends" rel="nofollow noopener">source</a></td></tr>
+<tr><th scope="row">Fizz<div class="sub">Quebecor</div></th><td><span class="tag live">live</span></td><td>$25 in every province<div class="sub">fizz.ca says $25 on its programme page and its site-wide menu in all five regions, and a real Ontario checkout applied $25 on 2026-10-21. The plan-page referral FAQ in Ontario, Alberta, B.C. and Manitoba still advertises $40 (Quebec plan pages carry no referral FAQ); an Ontario cart applied $40 on 2026-07-16, but the October checkout did not. Re-verified 2026-10-21 in a real browser across 20 region-and-language checkpoints, region forced by cookie.</div><div class="sub">re-checked 2026-10-21</div></td><td>$25 on the programme page and site menu; $40 on the plan-page FAQ outside Quebec<div class="sub">Fizz&#x27;s pages conflict on this side: the programme page says &quot;you’ll each get a $25 referral bonus&quot; and the site-wide menu &quot;$25 for you, $25 for them&quot; in every region, while the plan-page FAQ for Alberta, Ontario, BC and Manitoba says &quot;you both receive a $40 referral bonus&quot;. In July 2026 that FAQ gave no amount for the referrer.</div></td><td><a href="https://fizz.ca/en/invite-friends" rel="nofollow noopener">source</a></td></tr>
 <tr><th scope="row">Koodo<div class="sub">TELUS</div></th><td><span class="tag live">live</span></td><td>$25 postpaid, paid as $5/month × 5 months. Prepaid: $5 on activation, then $5 per additional month the friend stays, up to 5 months</td><td>The same as the new customer, in both programs</td><td><a href="https://www.koodomobile.com/en/services/refer" rel="nofollow noopener">source</a></td></tr>
 <tr><th scope="row">Public Mobile<div class="sub">TELUS</div></th><td><span class="tag live">live</span></td><td>$10 one-time bill credit</td><td>1 Public Point per 30 days that each referred line stays subscribed<div class="sub">Public Mobile&#x27;s help pages value a point at $1 (&quot;Redeem points at a value of 1 point for $1&quot;), and its rewards terms add that points &quot;have no cash value, and may not be redeemed for cash&quot;.</div></td><td><a href="https://www.publicmobile.ca/en/get-help/articles/refer-a-friend" rel="nofollow noopener">source</a></td></tr>
 <tr><th scope="row">Freedom Mobile<div class="sub">Quebecor</div></th><td><span class="tag live">live</span></td><td>$25 one-time service credit</td><td>$25 one-time service credit per successful referral</td><td><a href="https://refer.freedommobile.ca/common/terms?locale=en" rel="nofollow noopener">source</a></td></tr>
@@ -175,10 +175,11 @@
   <li>Amounts are read from <strong>the carrier's own</strong> website or support documentation.
       Never from a coupon site or a referral aggregator.</li>
   <li>Every record carries the <code>source</code> URL it was read from.</li>
-  <li>Where a carrier's own pages contradict each other, that is recorded rather than resolved.
-      Fizz is the live example: its programme page says $25 in every region while its plan pages
-      advertise $40 outside Quebec &mdash; for the new member and, as of October 2026, for the
-      referrer too.</li>
+  <li>Where a carrier's own pages contradict each other, that is recorded rather than resolved,
+      unless a real checkout settles it. Fizz is the live example: its programme page says $25 in
+      every region while its plan pages advertise $40 outside Quebec, for both sides. An Ontario
+      checkout applied $25 on 2026-10-21, so the new-member figure is $25 and the $40 is kept in
+      the note; the referrer figure, which no checkout shows, still records both.</li>
   <li>Anything that could not be confirmed is left blank.
       <strong>A blank cell is publishable; a plausible guess is not.</strong></li>
 </ol>
@@ -201,6 +202,10 @@
 
 <h2>Changes</h2>
 <ul>
+  <li><strong>2026-10-21 (checkout)</strong> &mdash; Fizz's new-member figure is now $25 in every
+      province: a real Ontario checkout applied $25, matching the programme page and the site menu.
+      The plan-page FAQ's $40 outside Quebec, which a July 2026 cart applied, is kept in the note.
+      The referrer figure still records both amounts.</li>
   <li><strong>2026-10-21</strong> &mdash; All eight carriers re-checked. Fizz's plan-page FAQ now promises
       the referrer $40 outside Quebec as well (its programme page still says $25); Public Mobile now
       publishes a point's value ($1); Freedom gives the referrer a link rather than an invite to a
