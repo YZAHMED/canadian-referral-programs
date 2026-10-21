@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Canadian carrier referral programs — an open, dated dataset</title>
-<meta name="description" content="Open dataset: every Canadian mobile carrier's refer-a-friend programme, read from the carrier's own site and dated. 8 carriers, 4 live, 4 discontinued. JSON and CSV, CC BY 4.0.">
+<meta name="description" content="Open dataset: 8 Canadian mobile carriers' refer-a-friend programmes, each read from the carrier's own site and dated. 4 live, 4 discontinued. JSON and CSV, CC BY 4.0.">
 <link rel="canonical" href="https://yzahmed.github.io/canadian-referral-programs/">
 <meta property="og:title" content="Canadian carrier referral programs — an open, dated dataset">
 <meta property="og:description" content="8 Canadian carriers' refer-a-friend programmes, each read from the carrier's own website and published with the date it was checked.">
@@ -16,12 +16,12 @@
   "@type": "Dataset",
   "name": "Canadian carrier referral programs",
   "alternateName": "Canadian refer-a-friend programme dataset",
-  "description": "Every major Canadian mobile carrier's refer-a-friend programme, read from the carrier's own website and published with the date it was checked. 8 carriers, 4 live, 4 discontinued. Each record carries the source URL it was read from; contradictions between a carrier's own pages are recorded rather than resolved.",
+  "description": "8 Canadian mobile carriers' refer-a-friend programmes, each read from the carrier's own website and published with the date it was checked. 4 live, 4 discontinued. Each record carries the source URL it was read from; contradictions between a carrier's own pages are recorded rather than resolved.",
   "url": "https://yzahmed.github.io/canadian-referral-programs/",
   "sameAs": "https://github.com/YZAHMED/canadian-referral-programs",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "isAccessibleForFree": true,
-  "dateModified": "2026-09-01",
+  "dateModified": "2026-10-21",
   "keywords": [
     "referral program",
     "refer a friend",
@@ -119,11 +119,11 @@
 
 <h1>Canadian carrier referral programs</h1>
 <p class="lede">
-  Every major Canadian mobile carrier's refer-a-friend programme, read from the carrier's own
+  8 Canadian mobile carriers' refer-a-friend programmes, each read from the carrier's own
   website and published with the date it was checked.
 </p>
 <p class="meta">
-  8 carriers &middot; 4 live &middot; 4 discontinued &middot; checked 2026-09-01 &middot; CC BY 4.0
+  8 carriers &middot; 4 live &middot; 4 discontinued &middot; checked 2026-10-21 &middot; CC BY 4.0
 </p>
 
 <h2>Why this exists</h2>
@@ -134,9 +134,15 @@
   this is one.
 </p>
 <p>
-  The finding worth noting is that <strong>half the industry has left</strong>. Bell closed both of
-  its flanker programmes on the same day. Rogers closed both of its own, earlier and separately.
-  Every surviving programme belongs to TELUS or Quebecor.
+  The finding worth noting is that <strong>half of these programmes have ended</strong>. Bell closed
+  both of its flanker programmes on the same day, and its own Bell-brand programme ended that day
+  too. Rogers closed both of its own, earlier and separately. Of the carriers in this dataset, every
+  surviving programme belongs to TELUS or Quebecor.
+</p>
+<p>
+  The dataset does not cover every carrier. TELUS's own programme (a $50 bill credit for each side)
+  and Eastlink's (a $50 credit for the referrer) are also live, checked on their own pages on
+  2026-10-21, and are not in it yet.
 </p>
 
 <h2>The data</h2>
@@ -146,9 +152,9 @@
     <tr><th>Carrier</th><th>Status</th><th>New customer</th><th>Referrer</th><th>Source</th></tr>
   </thead>
   <tbody>
-<tr><th scope="row">Fizz<div class="sub">Quebecor</div></th><td><span class="tag live">live</span></td><td>$40 outside Quebec, $25 in Quebec<div class="sub">Fizz&#x27;s own pages conflict, and both are live. The programme page says $25 in all five regions; the plan-page referral FAQ advertises $40 in Ontario, Alberta, B.C. and Manitoba and carries no referral FAQ at all in Quebec. Re-verified 2026-09-08 in a real browser across 20 region-and-language checkpoints, region forced by cookie. A real Ontario cart applied $40 on 2026-07-16.</div><div class="sub">re-checked 2026-09-08</div></td><td>$25</td><td><a href="https://fizz.ca/en/invite-friends" rel="nofollow noopener">source</a></td></tr>
+<tr><th scope="row">Fizz<div class="sub">Quebecor</div></th><td><span class="tag live">live</span></td><td>$40 outside Quebec, $25 in Quebec<div class="sub">Fizz&#x27;s own pages conflict, and both are live. The programme page says $25 in all five regions; the plan-page referral FAQ advertises $40 in Ontario, Alberta, B.C. and Manitoba and carries no referral FAQ at all in Quebec. Re-verified 2026-10-21 in a real browser across 20 region-and-language checkpoints, region forced by cookie. A real Ontario cart applied $40 on 2026-07-16.</div><div class="sub">re-checked 2026-10-21</div></td><td>$25 on the programme page; $40 on the plan-page FAQ outside Quebec<div class="sub">Fizz&#x27;s pages conflict on this side too: the programme page says &quot;you’ll each get a $25 referral bonus&quot; in every region, while the plan-page FAQ for Alberta, Ontario, BC and Manitoba says &quot;you both receive a $40 referral bonus&quot;. In July 2026 that FAQ gave no amount for the referrer.</div></td><td><a href="https://fizz.ca/en/invite-friends" rel="nofollow noopener">source</a></td></tr>
 <tr><th scope="row">Koodo<div class="sub">TELUS</div></th><td><span class="tag live">live</span></td><td>$25 postpaid, paid as $5/month × 5 months. Prepaid: $5 on activation, then $5 per additional month the friend stays, up to 5 months</td><td>The same as the new customer, in both programs</td><td><a href="https://www.koodomobile.com/en/services/refer" rel="nofollow noopener">source</a></td></tr>
-<tr><th scope="row">Public Mobile<div class="sub">TELUS</div></th><td><span class="tag live">live</span></td><td>$10 one-time bill credit</td><td>1 Public Point per 30 days that each referred line stays subscribed</td><td><a href="https://www.publicmobile.ca/en/get-help/articles/refer-a-friend" rel="nofollow noopener">source</a></td></tr>
+<tr><th scope="row">Public Mobile<div class="sub">TELUS</div></th><td><span class="tag live">live</span></td><td>$10 one-time bill credit</td><td>1 Public Point per 30 days that each referred line stays subscribed<div class="sub">Public Mobile&#x27;s help pages value a point at $1 (&quot;Redeem points at a value of 1 point for $1&quot;), and its rewards terms add that points &quot;have no cash value, and may not be redeemed for cash&quot;.</div></td><td><a href="https://www.publicmobile.ca/en/get-help/articles/refer-a-friend" rel="nofollow noopener">source</a></td></tr>
 <tr><th scope="row">Freedom Mobile<div class="sub">Quebecor</div></th><td><span class="tag live">live</span></td><td>$25 one-time service credit</td><td>$25 one-time service credit per successful referral</td><td><a href="https://refer.freedommobile.ca/common/terms?locale=en" rel="nofollow noopener">source</a></td></tr>
 <tr><th scope="row">chatr<div class="sub">Rogers</div></th><td><span class="tag ended">ended</span><div class="sub">31 May 2023</div></td><td>—</td><td>—</td><td><a href="https://www.chatrwireless.com/support/refer-a-friend/" rel="nofollow noopener">source</a></td></tr>
 <tr><th scope="row">Fido<div class="sub">Rogers</div></th><td><span class="tag ended">ended</span><div class="sub">2 July 2024</div></td><td>—</td><td>—</td><td><a href="https://www.fido.ca/support/mobility/refer-a-friend-program" rel="nofollow noopener">source</a></td></tr>
@@ -171,7 +177,8 @@
   <li>Every record carries the <code>source</code> URL it was read from.</li>
   <li>Where a carrier's own pages contradict each other, that is recorded rather than resolved.
       Fizz is the live example: its programme page says $25 in every region while its plan pages
-      advertise $40 outside Quebec.</li>
+      advertise $40 outside Quebec &mdash; for the new member and, as of October 2026, for the
+      referrer too.</li>
   <li>Anything that could not be confirmed is left blank.
       <strong>A blank cell is publishable; a plausible guess is not.</strong></li>
 </ol>
@@ -184,13 +191,25 @@
 <h2>Known limits</h2>
 <ul>
   <li><strong>Amounts change without notice.</strong> Check the carrier's own page before acting.</li>
-  <li>Public Mobile's referrer reward is 1 Public Point per 30 days. The commonly quoted
-      &ldquo;1 point = $1&rdquo; appears on <strong>no current Public Mobile page</strong> &mdash; its
-      only source is a staff forum post from January 2022, so the dollar value is deliberately not
-      asserted here.</li>
-  <li>Freedom Mobile has <strong>no shareable referral code</strong>. Its programme is invite-only and
-      its terms permit referring only &ldquo;individuals with whom you have a personal
-      relationship&rdquo;, so it cannot be used the way the others can.</li>
+  <li>Public Mobile's referrer reward is 1 Public Point per 30 days. Its help pages now value a
+      point at $1 (&ldquo;Redeem points at a value of 1 point for $1&rdquo;), and its rewards terms
+      add that points &ldquo;have no cash value&rdquo;.</li>
+  <li>Freedom Mobile has <strong>no code to type</strong>. The referrer gets a unique referral link,
+      the friend must claim the offer through it before activating, and the terms permit referring
+      only &ldquo;individuals with whom you have a personal relationship&rdquo;.</li>
+</ul>
+
+<h2>Changes</h2>
+<ul>
+  <li><strong>2026-10-21</strong> &mdash; All eight carriers re-checked. Fizz's plan-page FAQ now promises
+      the referrer $40 outside Quebec as well (its programme page still says $25); Public Mobile now
+      publishes a point's value ($1); Freedom gives the referrer a link rather than an invite to a
+      named person. Corrected: &ldquo;every major carrier&rdquo; (TELUS and Eastlink run live programmes
+      not yet in the dataset), &ldquo;every surviving programme belongs to TELUS or Quebecor&rdquo;
+      (true only of the carriers listed here), and the claim that Public Mobile publishes no point
+      value.</li>
+  <li><strong>2026-09-08</strong> &mdash; Fizz re-verified across 20 region-and-language checkpoints.</li>
+  <li><strong>2026-09-01</strong> &mdash; First published.</li>
 </ul>
 
 <h2>Corrections</h2>

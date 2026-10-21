@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate index.html from carrier-referral-programs.json.
+"""Generate index.html and carrier-referral-programs.csv from carrier-referral-programs.json.
 
 The page is generated rather than hand-written so it cannot drift from the data
 it describes — the same reason every figure in this dataset carries the date it
@@ -8,6 +8,7 @@ was read. Run after any edit to the JSON:
     python3 build.py && git add -A && git commit
 """
 
+import csv
 import json
 import html
 from pathlib import Path
@@ -34,13 +35,14 @@ def rows():
         )
         ended = "" if live else f'<div class="sub">{e(p.get("endedOn", p.get("ended", "")))}</div>'
         note = f'<div class="sub">{e(p["refereeNote"])}</div>' if p.get("refereeNote") else ""
+        rnote = f'<div class="sub">{e(p["referrerNote"])}</div>' if p.get("referrerNote") else ""
         checked = f'<div class="sub">re-checked {e(p["lastChecked"])}</div>' if p.get("lastChecked") else ""
         out.append(
             "<tr>"
             f'<th scope="row">{e(p["carrier"])}<div class="sub">{e(p["parent"])}</div></th>'
             f"<td>{status}{ended}</td>"
             f'<td>{e(p.get("referee") or "—")}{note}{checked}</td>'
-            f'<td>{e(p.get("referrer") or "—")}</td>'
+            f'<td>{e(p.get("referrer") or "—")}{rnote}</td>'
             f'<td><a href="{e(p["source"])}" rel="nofollow noopener">source</a></td>'
             "</tr>"
         )
@@ -57,8 +59,8 @@ jsonld = {
     "name": "Canadian carrier referral programs",
     "alternateName": "Canadian refer-a-friend programme dataset",
     "description": (
-        "Every major Canadian mobile carrier's refer-a-friend programme, read from the carrier's "
-        f"own website and published with the date it was checked. {total_n} carriers, {live_n} live, "
+        f"{total_n} Canadian mobile carriers' refer-a-friend programmes, each read from the carrier's "
+        f"own website and published with the date it was checked. {live_n} live, "
         f"{ended_n} discontinued. Each record carries the source URL it was read from; contradictions "
         "between a carrier's own pages are recorded rather than resolved."
     ),
@@ -97,7 +99,7 @@ HTML = f"""<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Canadian carrier referral programs — an open, dated dataset</title>
-<meta name="description" content="Open dataset: every Canadian mobile carrier's refer-a-friend programme, read from the carrier's own site and dated. {total_n} carriers, {live_n} live, {ended_n} discontinued. JSON and CSV, CC BY 4.0.">
+<meta name="description" content="Open dataset: {total_n} Canadian mobile carriers' refer-a-friend programmes, each read from the carrier's own site and dated. {live_n} live, {ended_n} discontinued. JSON and CSV, CC BY 4.0.">
 <link rel="canonical" href="{SITE}">
 <meta property="og:title" content="Canadian carrier referral programs — an open, dated dataset">
 <meta property="og:description" content="{total_n} Canadian carriers' refer-a-friend programmes, each read from the carrier's own website and published with the date it was checked.">
@@ -169,7 +171,7 @@ HTML = f"""<!doctype html>
 
 <h1>Canadian carrier referral programs</h1>
 <p class="lede">
-  Every major Canadian mobile carrier's refer-a-friend programme, read from the carrier's own
+  {total_n} Canadian mobile carriers' refer-a-friend programmes, each read from the carrier's own
   website and published with the date it was checked.
 </p>
 <p class="meta">
@@ -184,9 +186,15 @@ HTML = f"""<!doctype html>
   this is one.
 </p>
 <p>
-  The finding worth noting is that <strong>half the industry has left</strong>. Bell closed both of
-  its flanker programmes on the same day. Rogers closed both of its own, earlier and separately.
-  Every surviving programme belongs to TELUS or Quebecor.
+  The finding worth noting is that <strong>half of these programmes have ended</strong>. Bell closed
+  both of its flanker programmes on the same day, and its own Bell-brand programme ended that day
+  too. Rogers closed both of its own, earlier and separately. Of the carriers in this dataset, every
+  surviving programme belongs to TELUS or Quebecor.
+</p>
+<p>
+  The dataset does not cover every carrier. TELUS's own programme (a $50 bill credit for each side)
+  and Eastlink's (a $50 credit for the referrer) are also live, checked on their own pages on
+  2026-10-21, and are not in it yet.
 </p>
 
 <h2>The data</h2>
@@ -214,7 +222,8 @@ HTML = f"""<!doctype html>
   <li>Every record carries the <code>source</code> URL it was read from.</li>
   <li>Where a carrier's own pages contradict each other, that is recorded rather than resolved.
       Fizz is the live example: its programme page says $25 in every region while its plan pages
-      advertise $40 outside Quebec.</li>
+      advertise $40 outside Quebec &mdash; for the new member and, as of October 2026, for the
+      referrer too.</li>
   <li>Anything that could not be confirmed is left blank.
       <strong>A blank cell is publishable; a plausible guess is not.</strong></li>
 </ol>
@@ -227,13 +236,25 @@ HTML = f"""<!doctype html>
 <h2>Known limits</h2>
 <ul>
   <li><strong>Amounts change without notice.</strong> Check the carrier's own page before acting.</li>
-  <li>Public Mobile's referrer reward is 1 Public Point per 30 days. The commonly quoted
-      &ldquo;1 point = $1&rdquo; appears on <strong>no current Public Mobile page</strong> &mdash; its
-      only source is a staff forum post from January 2022, so the dollar value is deliberately not
-      asserted here.</li>
-  <li>Freedom Mobile has <strong>no shareable referral code</strong>. Its programme is invite-only and
-      its terms permit referring only &ldquo;individuals with whom you have a personal
-      relationship&rdquo;, so it cannot be used the way the others can.</li>
+  <li>Public Mobile's referrer reward is 1 Public Point per 30 days. Its help pages now value a
+      point at $1 (&ldquo;Redeem points at a value of 1 point for $1&rdquo;), and its rewards terms
+      add that points &ldquo;have no cash value&rdquo;.</li>
+  <li>Freedom Mobile has <strong>no code to type</strong>. The referrer gets a unique referral link,
+      the friend must claim the offer through it before activating, and the terms permit referring
+      only &ldquo;individuals with whom you have a personal relationship&rdquo;.</li>
+</ul>
+
+<h2>Changes</h2>
+<ul>
+  <li><strong>2026-10-21</strong> &mdash; All eight carriers re-checked. Fizz's plan-page FAQ now promises
+      the referrer $40 outside Quebec as well (its programme page still says $25); Public Mobile now
+      publishes a point's value ($1); Freedom gives the referrer a link rather than an invite to a
+      named person. Corrected: &ldquo;every major carrier&rdquo; (TELUS and Eastlink run live programmes
+      not yet in the dataset), &ldquo;every surviving programme belongs to TELUS or Quebecor&rdquo;
+      (true only of the carriers listed here), and the claim that Public Mobile publishes no point
+      value.</li>
+  <li><strong>2026-09-08</strong> &mdash; Fizz re-verified across 20 region-and-language checkpoints.</li>
+  <li><strong>2026-09-01</strong> &mdash; First published.</li>
 </ul>
 
 <h2>Corrections</h2>
@@ -262,5 +283,18 @@ HTML = f"""<!doctype html>
 """
 
 (ROOT / "index.html").write_text(HTML)
+
+# The CSV is the same records, flat. Generated here for the same reason as the
+# page: so it cannot drift from the JSON. csv.writer's default \r\n line endings
+# match the file as first published.
+CSV_COLUMNS = [
+    "carrier", "parent", "live", "ended", "accountType", "referee", "referrer", "whenPaid",
+    "planMinimum", "cap", "recoverable", "source", "note",
+]
+with open(ROOT / "carrier-referral-programs.csv", "w", newline="", encoding="utf-8") as f:
+    w = csv.writer(f)
+    w.writerow(CSV_COLUMNS)
+    for p in DATA["programs"]:
+        w.writerow(["" if p.get(c) is None else p.get(c) for c in CSV_COLUMNS])
 (ROOT / ".nojekyll").write_text("")
-print(f"index.html written — {total_n} carriers, {live_n} live, {ended_n} ended")
+print(f"index.html and CSV written — {total_n} carriers, {live_n} live, {ended_n} ended")
